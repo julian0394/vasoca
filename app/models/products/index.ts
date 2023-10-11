@@ -1,5 +1,6 @@
 import { AllProducts } from "./types";
 import Imagen from '../../assets/img/product-img.jpg'
+import { PRICES } from "../constants";
 
 export const productList: AllProducts = {
   premium: [
@@ -13,6 +14,11 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.PREMIUM[30] },
+        { key: '60ml', price: PRICES.PREMIUM[60] },
+        { key: '120ml', price: PRICES.PREMIUM[120] },
+      ],
     },
     {
       name: 'Tony Montana',
@@ -24,6 +30,11 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.PREMIUM[30] },
+        { key: '60ml', price: PRICES.PREMIUM[60] },
+        { key: '120ml', price: PRICES.PREMIUM[120] },
+      ],
     },
   ],
   tradicional: [
@@ -37,6 +48,11 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: true,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.TRADICIONAL[30] },
+        { key: '30ml', price: PRICES.TRADICIONAL[30] },
+        { key: '30ml', price: PRICES.TRADICIONAL[30] },
+      ],
     },
     {
       name: 'Freezer',
@@ -48,6 +64,11 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.TRADICIONAL[30] },
+        { key: '30ml', price: PRICES.TRADICIONAL[30] },
+        { key: '30ml', price: PRICES.TRADICIONAL[30] },
+      ],
     },
   ],
   lowCost: [
@@ -61,6 +82,9 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: true,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.LOWCOST[60] },
+      ],
     },
     {
       name: 'Cafe con Crema',
@@ -72,6 +96,9 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.LOWCOST[60] },
+      ],
     },
   ],
   salt: [
@@ -85,6 +112,9 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.SALT.TRADICIONAL },
+      ],
     },
     {
       name: 'El Padrino',
@@ -96,6 +126,9 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: '30ml', price: PRICES.SALT.PREMIUM },
+      ],
     },
   ],
   insumos: [
@@ -107,6 +140,9 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: true,
+      price: [
+        { key: '2X UNIDADES', price: '18000' },
+      ],
     },
     {
       name: 'Pirex plastico',
@@ -116,6 +152,17 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      price: [
+        { key: 'SKY SOLO PLUS', price: '600' },
+        { key: 'KYLIN V1', price: '600' },
+        { key: 'TFV12 PRINCE / VECO SOLO PLUS', price: '600' },
+        { key: 'BLITZEN', price: '600' },
+        { key: 'GOVAD RTA', price: '600' },
+        { key: 'VAPE PEN PLUS / TFV8 BIG BABY', price: '600' },
+        { key: 'CASCADE BABY', price: '600' },
+        { key: 'SKY SOLO', price: '600' },
+        { key: 'PEN 22 / V2 / TFV8 BABY', price: '600' },
+      ],
     },
   ],
   equipos: [
@@ -127,6 +174,9 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: true,
+      price: [
+        { key: 'BLACK', price: '82400' },
+      ],
     },
   ],
 }

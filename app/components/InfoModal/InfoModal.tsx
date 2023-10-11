@@ -11,7 +11,7 @@ import {
   ModalContent,
   ModalHeader,
 } from "@nextui-org/react"
-import { InfoModalAtom } from "../../stores/atoms"
+import { infoModalAtom } from "../../stores/atoms"
 import { useAtom } from "jotai"
 import { 
   X as CloseIcon, 
@@ -24,7 +24,7 @@ import mapImg from '../../assets/img/img1.jpg'
 import codeImg from '../../assets/img/img2.jpg'
 
 const InfoModal = () => {
-  const [isModalOpen, setIsModalOpen] = useAtom(InfoModalAtom)
+  const [isModalOpen, setIsModalOpen] = useAtom(infoModalAtom)
 
   const itemClasses = {
     base: "py-0 w-full",
@@ -32,7 +32,7 @@ const InfoModal = () => {
     trigger: "data-[hover=true]:bg-default-100 rounded-lg",
     indicator: "text-medium",
     content: "text-small px-2 tracking-wide",
-  };
+  }
 
   return (
     <Modal 
@@ -41,6 +41,7 @@ const InfoModal = () => {
       onClose={() => setIsModalOpen(false)} 
       placement="center"
       scrollBehavior="inside"
+      defaultOpen={true}
     >
       <ModalContent className="pb-3">
         <ModalHeader className="flex items-center justify-between text-md">

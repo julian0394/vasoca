@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Badge, Divider, ButtonGroup } from "@nextui-org/react"
+import { Button, Badge, ButtonGroup } from "@nextui-org/react"
 import { 
   Moon as MoonIcon, 
   Sun as SunIcon, 
@@ -10,14 +10,13 @@ import {
 import NavSearchDrowpdown from "../NewNav/NavSearchDrowpdown"
 import { useTheme } from "next-themes"
 import { useState } from "react"
-import { InfoModalAtom } from "../../stores/atoms"
+import { infoModalAtom } from "../../stores/atoms"
 import { useAtom } from "jotai"
-import InfoModal from "../InfoModal/InfoModal"
 
 const Footer = () => {
   const { theme, setTheme } = useTheme()
-  const [cartItems, setCartItems] = useState(0)
-  const [ infoModalOpen, setInfoModalOpen ] = useAtom(InfoModalAtom)
+  const [ cartItems, setCartItems ] = useState(0)
+  const [ , setInfoModalOpen ] = useAtom(infoModalAtom)
 
   const handleCartClick = () => {
     if(cartItems === 0) setCartItems(1)
@@ -26,7 +25,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="absolute w-full bottom-0 px-2 py-1 bg-slate-900">
+      <footer className="px-3 pb-1 pt-2 bg-slate-900">
         <ButtonGroup radius="lg" className="mx-auto w-[100%]">
           <Button isIconOnly onClick={handleCartClick} className='w-full dark:text-white' aria-label="carrito">
             <Badge content={cartItems} size="md" color="danger" isInvisible={cartItems === 0} className="ml-5">
@@ -49,9 +48,7 @@ const Footer = () => {
             <InfoIcon size={22} />
           </Button>
         </ButtonGroup>
-
       </footer>
-      <InfoModal />
     </>
   )
 }

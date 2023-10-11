@@ -32,10 +32,9 @@ const config: Config = {
             background: '#0f172a',
             foreground: '#e2e8f0',
             divider: '#e2e8f0',
-            // overlay: ',
+            // overlay: '#500c35',
             focus: '#1d4ed8',
             content1: '#1e293b',
-
           }
         },
       }

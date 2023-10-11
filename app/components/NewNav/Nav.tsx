@@ -33,7 +33,7 @@ const Nav = () => {
   ]
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred={false} className="bg-slate-100 dark:bg-slate-900">
+    <Navbar onMenuOpenChange={setIsMenuOpen} isBlurred={false} className="pb-2 bg-slate-100 dark:bg-slate-900">
       <NavbarContent>
         {/* Hamburguer menu toggle */}
         <NavbarMenuToggle className="px-5" aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"} />

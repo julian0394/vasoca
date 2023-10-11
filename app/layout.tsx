@@ -5,7 +5,7 @@ import { Providers } from "./providers"
 import Nav from './components/NewNav/Nav'
 import Footer from './components/Footer/Footer'
 import { twMerge } from 'tailwind-merge'
-import CartModal from './components/CartModal/CartModal'
+import ProductModal from './components/ProductModal/ProductModal'
 import InfoModal from './components/InfoModal/InfoModal'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,13 +18,17 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang="es" className='dark'>
-      <body className={twMerge(inter.className, 'relative overflow-y-hidden')}>
+      <body className={twMerge(inter.className)}>
         <Providers>
-          <Nav />
+          <div className='max-h-screen flex flex-col'>
+            <Nav />
             {children}
-          <Footer />
+            <Footer />
+          </div>
           
           {/* <CartModal /> */}
+          <ProductModal />
+          <InfoModal />
         </Providers>
       </body>
     </html>

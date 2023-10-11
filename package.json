@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
+    "@radix-ui/react-slider": "^1.1.2",
     "autoprefixer": "10.4.16",
     "class-variance-authority": "^0.7.0",
     "eslint": "8.49.0",

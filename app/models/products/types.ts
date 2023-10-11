@@ -11,6 +11,7 @@ export interface Product {
   img: StaticImageData
   soldOut: boolean
   isNew: boolean
+  price: Price[]
 }
 
 export interface AllProducts {
@@ -22,6 +23,11 @@ export interface AllProducts {
   equipos: Product[]
   // resistencias?: Product[]
   // usados?: Product[]
+}
+
+export interface Price {
+  key: string
+  price: string
 }
 
 export type Category = typeof CATEGORIES[keyof typeof CATEGORIES]
