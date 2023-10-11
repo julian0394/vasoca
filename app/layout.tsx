@@ -20,7 +20,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     <html lang="es" className='dark'>
       <body className={twMerge(inter.className)}>
         <Providers>
-          <div className='max-h-screen flex flex-col'>
+          <div className='h-screen flex flex-col'>
             <Nav />
             {children}
             <Footer />
