@@ -39,7 +39,7 @@ export default function Home() {
   )
   
   return (
-    <main className='flex-1 mx-5 overflow-y-auto'>
+    <main className='px-3 flex-1 overflow-y-auto'>
       { search && <FilterCard /> }
       <div>
         { search 

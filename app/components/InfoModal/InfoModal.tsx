@@ -35,13 +35,13 @@ const InfoModal = () => {
   }
 
   return (
-    <Modal 
+    <Modal
       isOpen={isModalOpen} 
       hideCloseButton 
       onClose={() => setIsModalOpen(false)} 
       placement="center"
+      size="lg"
       scrollBehavior="inside"
-      defaultOpen={true}
     >
       <ModalContent className="pb-3">
         <ModalHeader className="flex items-center justify-between text-md">

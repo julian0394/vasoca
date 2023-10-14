@@ -14,7 +14,7 @@ const ProductModal = () => {
 
   const radioStyles = {
     base: twMerge(
-      "inline-flex m-0 p-2 items-center justify-between border border-slate-600",
+      "inline-flex m-0 p-1 items-center justify-between border border-slate-600",
       "w-full cursor-pointer rounded-lg",
     ),
   }
@@ -29,7 +29,7 @@ const ProductModal = () => {
       }} 
       placement="center"
       scrollBehavior="inside"
-      size="xs"
+      size="sm"
     >
       <ModalContent className="pb-3">
         <ModalHeader className="flex items-center justify-between text-lg uppercase">
