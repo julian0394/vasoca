@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Product } from '../../models/products/types'
 import { Snowflake as SnowflakeIcon } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
-import FlavorChip from '../FlavorChip/FlavorChip'
+import FlavorChip from '../Flavorchip/FlavorChip'
 import { productModalAtom, selectedProductAtom } from '../../stores/atoms'
 import { useAtom } from 'jotai'
 
@@ -29,17 +29,12 @@ const ProductCard = ({ product }: Props) => {
       
       <CardBody>
         <h2 className={twMerge('text-center font-bold uppercase mb-2 text-sm', soldOut && 'text-slate-400', isNew && 'mt-4')}>{name}</h2>
-        { soldOut 
-          ?
-          <div className="relative">
-            <Image src={img} alt="producto ilustrativo" className='select-none' />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/60">
-              <span className="text-red-500 bg-black/60 text-sm font-semibold tracking-wide select-none">Sin stock</span>
-            </div>
-          </div>
-          : 
+        <div className="relative">
           <Image src={img} className="rounded-lg select-none" alt="producto ilustrativo" />
-        }
+          { soldOut &&
+            <span className="absolute top-0 w-full text-center text-xs text-white bg-red-500/70 text-sm tracking-wide select-none rounded-t-lg">Sin stock</span>
+          }
+        </div>
         <p className='text-xs'>{shortDesc}</p>
         <div className='flex justify-between items-center mt-3'>
           { flavor && <FlavorChip flavor={flavor} /> }

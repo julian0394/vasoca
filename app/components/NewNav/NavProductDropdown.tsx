@@ -1,24 +1,23 @@
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger, NavbarItem } from "@nextui-org/react"
 import { BatteryCharging, ChevronDown, Flag, FlaskConical, Smartphone, Sparkles, Star, TrainTrack, Zap } from 'lucide-react'
+import { List as MenuIcon } from "lucide-react"
 
 const NavDropdown = () => {
   return (
     <Dropdown className="bg-slate-700">
-      <NavbarItem>
-        <DropdownTrigger>
-          <Button
-            className="py-1 px-2 data-[hover=true]:bg-transparent"
-            endContent={<ChevronDown size={15} />}
-            radius="sm"
-            variant="light"
-          >
-            Productos
-          </Button>
-        </DropdownTrigger>
-      </NavbarItem>
+      <DropdownTrigger>
+        <Button
+          className="p-2 data-[selected=true]:bg-red-500"
+          radius="sm"
+          variant="light"
+          isIconOnly
+        >
+          <MenuIcon size={25} className="text-slate-600 dark:text-slate-100" />
+        </Button>
+      </DropdownTrigger>
       
       <DropdownMenu aria-label="Productos" className="w-[340px]" itemClasses={{ base: "gap-4" }}>
-        <DropdownSection title="Líquidos" showDivider>
+        <DropdownSection title="Líquidos" showDivider classNames={{heading: 'font-medium text-slate-300'}}>
           <DropdownItem 
             className='py-3 data-[hover=true]:bg-slate-600' 
             key="autoscaling"
@@ -52,7 +51,8 @@ const NavDropdown = () => {
             Sales de nicotína
           </DropdownItem>
         </DropdownSection>
-        <DropdownSection title="General">
+        
+        <DropdownSection title="Otros productos" classNames={{heading: 'font-medium text-slate-300'}}>
           <DropdownItem 
             className='py-3 data-[hover=true]:bg-slate-600' 
             key="autoscaling"

@@ -32,8 +32,11 @@ const ProductModal = () => {
       size="sm"
     >
       <ModalContent className="pb-3">
-        <ModalHeader className="flex items-center justify-between text-lg uppercase">
-          {selectedProduct?.name ?? 'Sin nombre'}
+        <ModalHeader className="flex items-center justify-between">
+          <span className="flex items-center gap-2">
+            { <span className="text-lg uppercase">{selectedProduct?.name}</span> ?? 'Sin nombre' }
+            { selectedProduct?.soldOut && <span className="text-sm text-red-500/90 tracking-wide">Agotado</span> }
+          </span>
           <Button 
             onClick={() => setIsModalOpen(false)}
             isIconOnly

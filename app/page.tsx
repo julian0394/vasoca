@@ -5,7 +5,6 @@ import { searchAtom } from './stores/atoms'
 import ProductCard from './components/ProductCard/ProductCard'
 import { productList } from './models/products'
 import { v4 as uuid } from 'uuid';
-
 import { Product } from './models/products/types'
 import renderCategory from './utils/renderCategory'
 import { CATEGORIES } from './models/constants'
@@ -31,6 +30,27 @@ export default function Home() {
   }
 
   const renderAllProducts = () => (
+    // <Tabs>
+    //   <Tab key='todos' title='Todo'>
+    //     {
+    //       Object.values(CATEGORIES).map( category => (
+    //         <div key={uuid()}>
+    //           { renderCategory({ category, banner: BANNERS[category] }) }
+    //         </div>
+    //       ))
+    //     }
+    //   </Tab>
+    //   <Tab key='premium' title='Premium'>
+    //     <span>Tradicionales</span>
+    //   </Tab>
+    //   <Tab key='tradicionales' title='Tradicionales'>
+    //     <span>trad</span>
+    //   </Tab>
+    //   <Tab key='lowCost' title='Low Cost'>
+    //     <span>low cost</span>
+    //   </Tab>
+    // </Tabs>
+
     Object.values(CATEGORIES).map( category => (
       <div key={uuid()}>
         { renderCategory({ category, banner: BANNERS[category] }) }
