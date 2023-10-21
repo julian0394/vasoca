@@ -11,6 +11,7 @@ export interface Product {
   img: StaticImageData
   soldOut: boolean
   isNew: boolean
+  isFavorite: boolean
   price: Price[]
 }
 

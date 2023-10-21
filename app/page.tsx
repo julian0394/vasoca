@@ -1,5 +1,4 @@
 'use client'
-
 import { useAtom } from 'jotai'
 import { searchAtom } from './stores/atoms'
 import ProductCard from './components/ProductCard/ProductCard'
@@ -30,26 +29,6 @@ export default function Home() {
   }
 
   const renderAllProducts = () => (
-    // <Tabs>
-    //   <Tab key='todos' title='Todo'>
-    //     {
-    //       Object.values(CATEGORIES).map( category => (
-    //         <div key={uuid()}>
-    //           { renderCategory({ category, banner: BANNERS[category] }) }
-    //         </div>
-    //       ))
-    //     }
-    //   </Tab>
-    //   <Tab key='premium' title='Premium'>
-    //     <span>Tradicionales</span>
-    //   </Tab>
-    //   <Tab key='tradicionales' title='Tradicionales'>
-    //     <span>trad</span>
-    //   </Tab>
-    //   <Tab key='lowCost' title='Low Cost'>
-    //     <span>low cost</span>
-    //   </Tab>
-    // </Tabs>
 
     Object.values(CATEGORIES).map( category => (
       <div key={uuid()}>

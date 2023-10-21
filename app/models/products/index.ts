@@ -14,6 +14,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.PREMIUM[30] },
         { key: '60ml', price: PRICES.PREMIUM[60] },
@@ -30,6 +31,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: true,
       price: [
         { key: '30ml', price: PRICES.PREMIUM[30] },
         { key: '60ml', price: PRICES.PREMIUM[60] },
@@ -48,6 +50,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: true,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.TRADICIONAL[30] },
         { key: '30ml', price: PRICES.TRADICIONAL[30] },
@@ -64,6 +67,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.TRADICIONAL[30] },
         { key: '30ml', price: PRICES.TRADICIONAL[30] },
@@ -82,6 +86,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: true,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.LOWCOST[60] },
       ],
@@ -96,6 +101,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.LOWCOST[60] },
       ],
@@ -112,6 +118,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.SALT.TRADICIONAL },
       ],
@@ -126,6 +133,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: '30ml', price: PRICES.SALT.PREMIUM },
       ],
@@ -140,6 +148,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: true,
+      isFavorite: true,
       price: [
         { key: '2X UNIDADES', price: '18000' },
       ],
@@ -152,6 +161,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: false,
+      isFavorite: false,
       price: [
         { key: 'SKY SOLO PLUS', price: '600' },
         { key: 'KYLIN V1', price: '600' },
@@ -174,6 +184,7 @@ export const productList: AllProducts = {
       img: Imagen,
       soldOut: false,
       isNew: true,
+      isFavorite: false,
       price: [
         { key: 'BLACK', price: '82400' },
       ],
