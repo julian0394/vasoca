@@ -19,21 +19,20 @@ const ProductCard = ({ product }: Props) => {
   return (
     <Card
       isPressable
-      className={twMerge('relative border-1 border-pink-300/90', !soldOut && 'cursor-pointer')}
+      className={twMerge('relative', !soldOut && 'cursor-pointer')}
       onClick={() => {
         setSelectedProduct(product)
         setOpenProdModal(true)
       }}
-    >
-      { isNew && <Chip className='absolute top-1 left-1 bg-gradient-to-br from-indigo-500 to-pink-500 border border-black/30 dark:border-white/50 text-xs font-semibold text-white' size='sm'>Novedad</Chip> }
-      { isFavorite && <HeartIcon size={20} className='text-pink-500 absolute top-2 right-3' fill='red' /> }
-      
-      <CardBody>
-        <h2 className={twMerge('text-center font-bold uppercase mb-2 text-sm', soldOut && 'text-slate-400', isNew && 'mt-4')}>{name}</h2>
+    >      
+      <CardBody className='p-3'>
+        <h2 className={twMerge('text-center font-bold uppercase mb-2 text-sm', soldOut && 'text-slate-400')}>{name}</h2>
         <div className="relative">
           <Image src={img} className="rounded-lg select-none" alt="producto ilustrativo" />
+          { isNew && <span className='absolute top-0 w-full rounded-t-lg text-center text-sm font-semibold text-white bg-gradient-to-br from-indigo-500 to-pink-500 border border-black/30 dark:border-white/50'>Novedad</span> }
+          { isFavorite && <HeartIcon size={20} className={twMerge('text-rose-500 absolute top-1 right-1', isNew && 'top-6')} fill='red' /> }
           { soldOut &&
-            <span className="absolute top-0 w-full text-center text-white bg-red-500/70 text-sm tracking-wide select-none rounded-t-lg">Sin stock</span>
+            <span className="absolute bottom-0 w-full rounded-b-lg text-sm text-center tracking-wide select-none text-white bg-red-700">Sin stock</span>
           }
         </div>
         <p className='text-xs pt-2'>{shortDesc}</p>
