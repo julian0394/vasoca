@@ -1,12 +1,14 @@
 'use client'
+import { useState } from "react"
 import { Button, Modal, ModalContent, ModalHeader, ModalBody, Tabs, Tab, Card, CardBody } from "@nextui-org/react"
 import { X as CloseIcon } from "lucide-react"
 import { useAtom } from "jotai"
 import { sessionAtom } from "../../stores/atoms"
-import CustomInput from "../FormComponents/NextuiInput"
+import FormLogin from "./FormLogin"
 
 const SessionModal = () => {
   const [isModalOpen, setIsModalOpen] = useAtom(sessionAtom)
+  const [tabSelected, setTabSelected] = useState('login')
   
   return (
     <Modal
@@ -19,7 +21,7 @@ const SessionModal = () => {
     >
       <ModalContent className="pb-3">
         <ModalHeader className="flex items-center justify-between text-md">
-          Inicio de sesión
+          Acceso a cuenta
           <Button 
             onClick={() => setIsModalOpen(false)}
             isIconOnly
@@ -38,21 +40,14 @@ const SessionModal = () => {
               cursor: "dark:group-data-[selected=true]:bg-slate-600"
             }}
             fullWidth
+            selectedKey={tabSelected}
+            onSelectionChange={setTabSelected}
           >
             <Tab key="login" title="Iniciar sesión">
-              <Card className="bg-slate-700 mx-auto" fullWidth>
-                <CardBody>
-                  <CustomInput />
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </CardBody>
-              </Card>  
+              {/* content */}
             </Tab>
             <Tab key="signup" title="Registrarse">
-              <Card>
-                <CardBody>
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </CardBody>
-              </Card>  
+              {/*content  */}
             </Tab>
           </Tabs>
         </ModalBody>
