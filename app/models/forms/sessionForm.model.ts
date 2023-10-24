@@ -26,7 +26,7 @@ export const DEFAULT_SIGNUP_FORM = {
   confirmPassword: '',
 }
 export const signupSchema: ZodSchema<SignupFormType> = z.object({
-  email: z.string().email('No es un formato de mail valido').min(1, 'Este campo es requerido'),
+  email: z.string().email('No es un formato de mail válido').min(1, 'Este campo es requerido'),
   password: z.string().min(1, 'Este campo es requerido'),
   confirmPassword: z.string().min(1, 'Este campo es requerido'),
 }).refine(

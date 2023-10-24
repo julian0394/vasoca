@@ -5,9 +5,9 @@ import { Providers } from "./providers"
 import Nav2 from './components/NewNav/Nav2'
 import Footer from './components/Footer/Footer'
 import { twMerge } from 'tailwind-merge'
-import ProductModal from './components/ProductModal/ProductModal'
-import InfoModal from './components/InfoModal/InfoModal'
-import SessionModal from './components/SessionModal/SessionModal'
+import ProductModal from './components/Modals/ProductModal/ProductModal'
+import InfoModal from './components/Modals/InfoModal/InfoModal'
+import SessionModal from './components/Modals/SessionModal/SessionModal'
 
 const inter = Inter({ subsets: ['latin'] })
 

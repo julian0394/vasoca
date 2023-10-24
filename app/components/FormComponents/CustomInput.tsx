@@ -43,7 +43,7 @@ const CustomInput = ({
 
   const styles = twMerge(`
     py-2 px-3 text-sm border rounded-md outline-none transition-all duration-200
-    text-slate-600 dark:text-slate-100 bg-slate-100 dark:bg-slate-600
+    text-slate-600 dark:text-slate-100 bg-slate-100 dark:bg-slate-700
     border-slate-300 hover:border-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700/70 active:border-blue-700 active:ring-1 active:ring-blue-700/70
     dark:border-slate-500 dark:hover:border-slate-400 dark:focus:border-blue-500 dark:focus:ring-1 dark:focus:ring-blue-500/70 dark:active:border-blue-500 dark:active:ring-1 dark:active:ring-blue-700/70
     placeholder:text-sm placeholder:text-slate-400 dark:placeholder:text-slate-300 placeholder:font-light placeholder:select-none`,

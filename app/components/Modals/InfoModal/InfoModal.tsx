@@ -11,7 +11,7 @@ import {
   ModalContent,
   ModalHeader,
 } from "@nextui-org/react"
-import { infoModalAtom } from "../../stores/atoms"
+import { infoModalAtom } from "../../../stores/atoms"
 import { useAtom } from "jotai"
 import { 
   X as CloseIcon, 
@@ -20,19 +20,19 @@ import {
   Phone as PhoneIcon
 } from "lucide-react"
 import Image from "next/image"
-import mapImg from '../../assets/img/img1.jpg'
-import codeImg from '../../assets/img/img2.jpg'
+import mapImg from '../../../assets/img/img1.jpg'
+import codeImg from '../../../assets/img/img2.jpg'
+import { ANIMATION_FROM_BOTTOM } from "../../../models/constants"
 
 const InfoModal = () => {
   const [isModalOpen, setIsModalOpen] = useAtom(infoModalAtom)
-
   const itemClasses = {
     base: "py-0 w-full",
     title: "text-sm py-2",
     trigger: "data-[hover=true]:bg-default-100 rounded-lg",
     indicator: "text-medium",
     content: "text-small px-2 tracking-wide",
-  }
+  }  
 
   return (
     <Modal
@@ -42,9 +42,10 @@ const InfoModal = () => {
       placement="center"
       size="lg"
       scrollBehavior="inside"
+      motionProps={ANIMATION_FROM_BOTTOM}
     >
       <ModalContent className="pb-3">
-        <ModalHeader className="flex items-center justify-between text-md">
+        <ModalHeader className="flex items-center justify-between text-lg tracking-wide">
           Información útil
           <Button 
             onClick={() => setIsModalOpen(false)}

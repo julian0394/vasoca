@@ -1,12 +1,12 @@
 'use client'
-
 import { Button, Divider, Modal, ModalBody, ModalContent, ModalHeader, Radio, RadioGroup } from "@nextui-org/react"
 import { X as CloseIcon } from "lucide-react"
-import { productModalAtom, selectedProductAtom } from "../../stores/atoms"
+import { productModalAtom, selectedProductAtom } from "../../../stores/atoms"
 import { useAtom } from "jotai"
 import Image from "next/image"
-import vasocaImg from '../../assets/img/vvlogo2.png'
+import vasocaImg from '../../../assets/img/vvlogo2.png'
 import { twMerge } from "tailwind-merge"
+import { ANIMATION_OPACITY_CENTER } from "../../../models/constants"
 
 const ProductModal = () => {
   const [isModalOpen, setIsModalOpen] = useAtom(productModalAtom)
@@ -16,7 +16,7 @@ const ProductModal = () => {
     base: twMerge(
       "inline-flex m-0 p-1 items-center justify-between border border-slate-600",
       "w-full cursor-pointer rounded-lg",
-    ),
+    )
   }
 
   return (
@@ -30,6 +30,7 @@ const ProductModal = () => {
       placement="center"
       scrollBehavior="inside"
       size="sm"
+      motionProps={ANIMATION_OPACITY_CENTER}
     >
       <ModalContent className="pb-3">
         <ModalHeader className="flex items-center justify-between">

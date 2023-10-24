@@ -28,3 +28,66 @@ export const PRICES = {
     PREMIUM: '6100',
   },
 }
+
+export const ANIMATION_FROM_TOP =  {
+  variants: {
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      y: -40,
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn",
+      },
+    },
+  }
+}
+
+export const ANIMATION_FROM_BOTTOM = {
+  variants: {
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      y: 40,
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn",
+      },
+    },
+  }
+}
+
+export const ANIMATION_OPACITY_CENTER = {
+  variants: {
+    enter: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      scale: 0.8,
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+        ease: "easeIn",
+      },
+    },
+  }
+}
