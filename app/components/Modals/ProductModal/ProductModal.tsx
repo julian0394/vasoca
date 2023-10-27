@@ -7,6 +7,9 @@ import Image from "next/image"
 import vasocaImg from '../../../assets/img/vvlogo2.png'
 import { twMerge } from "tailwind-merge"
 import { ANIMATION_OPACITY_CENTER } from "../../../models/constants"
+import CustomInput from "../../FormComponents/CustomInput"
+import  * as Form from "@radix-ui/react-form"
+import CustomSelect from "../../FormComponents/CustomSelect"
 
 const ProductModal = () => {
   const [isModalOpen, setIsModalOpen] = useAtom(productModalAtom)
@@ -53,6 +56,18 @@ const ProductModal = () => {
           <p className="text-sm">{selectedProduct?.descrption ?? 'Sin descripción'}</p>
           
           <Divider />
+
+          <Form.Root>
+            <div className="flex flex-col gap-3">
+              <CustomInput name={'lalala'} label='Input' helperText="helper" />
+              <CustomInput name={'lololo'} label='Otro input' />
+              <CustomSelect label="Select" name="lelile" options={[
+                { value: 'value 1', label: 'opcion 1' },
+                { value: 'value 2', label: 'opcion 2' },
+                { value: 'value 3', label: 'opcion 3' },
+              ]} />
+            </div>
+          </Form.Root>
 
           <div className="text-sm">
             <span>Opciones:</span>

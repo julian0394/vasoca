@@ -3,6 +3,7 @@ import { Asterisk as AsteriskIcon } from 'lucide-react'
 import { ChangeEvent, useEffect } from 'react'
 import { Controller, ControllerRenderProps, FieldError, UseFormReturn, useForm } from 'react-hook-form'
 import { twMerge } from 'tailwind-merge' 
+import { setInputSize } from '../../utils/setInputSize'
 
 interface Props {
   name: any
@@ -34,11 +35,13 @@ const CustomInput = ({
   placeholder = 'Completar',
   required = false,
   disabled = false,
+  size = 1,
   canResize = false,
   twClasses = '',
   type = 'text'
 }: Props) => {
   const { control: newControl } = useForm()
+  const inputSize = setInputSize(size)
   const error = methods?.formState.errors[name] as FieldError
 
   const styles = twMerge(`
@@ -63,7 +66,7 @@ const CustomInput = ({
       name={name}
       control={methods?.control ?? newControl}
       render={ ({ field }) => (
-        <Form.Field name={name} className={`flex flex-col gap-1 w-full min-w-[5rem]`} ref={field.ref}>
+        <Form.Field name={name} className={`flex flex-col gap-1 w-full ${inputSize} min-w-[5rem]`} ref={field.ref}>
           <Form.Label className='flex justify-between items-center pl-1 text-xs font-medium text-slate-500 dark:text-slate-400'>
             <Form.Message className='flex gap-1'>{label ?? ''} { required && <AsteriskIcon size={12} className='text-rose-500' />}</Form.Message>
             <span>

@@ -37,3 +37,9 @@ export const signupSchema: ZodSchema<SignupFormType> = z.object({
   }
 )
 export type SignupFormTypeSchema = z.infer<typeof signupSchema>
+
+
+export interface SelectOption {
+  value: string
+  label: string
+}
