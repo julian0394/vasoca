@@ -12,7 +12,7 @@ export const loginSchema: ZodSchema<LoginFormType> = z.object({
   email: z.string().min(1, 'Este campo es requerido').email('Ingrese email válido'),
   password: z.string().min(1, 'Este campo es requerido')
 })
-export type LoginSchema = z.infer<typeof loginSchema>
+// export type LoginSchema = z.infer<typeof loginSchema>
 
 
 export interface SignupFormType {
@@ -36,7 +36,7 @@ export const signupSchema: ZodSchema<SignupFormType> = z.object({
     path: ["confirmPassword"],
   }
 )
-export type SignupFormTypeSchema = z.infer<typeof signupSchema>
+// export type SignupFormTypeSchema = z.infer<typeof signupSchema>
 
 
 export interface SelectOption {

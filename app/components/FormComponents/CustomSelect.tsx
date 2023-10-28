@@ -12,6 +12,7 @@ interface Props {
   label: string
   options: SelectOption[]
   methods?: UseFormReturn<any>
+  placeholder?: string
   defaultValue?: string
   helperText?: string
   onChange?: (value: string) => void
@@ -25,10 +26,12 @@ interface Props {
 }
 
 const CustomSelect = ({ 
+  //! HAY QUE DEVOLVER EL FUNCIONAMIENTO NORMAL DEL PLACEHOLDER CON LA PRIMERA OPCION BLOQUEADA
   name,
   label,
   options,
   methods,
+  placeholder,
   defaultValue,
   helperText,
   onChange,
@@ -45,11 +48,12 @@ const CustomSelect = ({
   const error = methods?.formState.errors[name] as FieldError
 
   const clearValue = () => {
-    if(allowClear) methods?.setValue(name, '') ?? newSetValue(name, '')
+    if(allowClear) methods?.setValue(name, '0') ?? newSetValue(name, '0')
   }
 
   useEffect( () => {
     if(defaultValue) methods?.setValue(name, defaultValue) ?? newSetValue(name, defaultValue)
+    else methods?.setValue(name, '0') ?? newSetValue(name, '0')
   }, [])
 
   return (
@@ -85,18 +89,18 @@ const CustomSelect = ({
             value={field.value}
             name={field.name}
           >
-            { (field.value !== '' && allowClear && !required) &&
+            { (field.value !== '0' && allowClear && !required) &&
               <Select.Icon className='absolute right-[40px] top-[30px] rounded-full cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-600/80 dark:hover:text-slate-300 p-[2px] transition-all duration-200'>
-                <XIcon size={18} onClick={clearValue} />
+                <XIcon size={18} onClick={clearValue} strokeWidth={3} />
               </Select.Icon>
             }
             <Select.Trigger
               className={twMerge(`
-                flex justify-between py-2 px-3 border rounded-md outline-none select-none transition-all duration-200
+                flex justify-between py-2 px-3 text-sm border rounded-md outline-none select-none transition-all duration-200
                 text-slate-600 dark:text-slate-100 bg-slate-100 dark:bg-slate-700
                 border-slate-300 hover:border-slate-400 focus:border-blue-700 focus:ring-1 focus:ring-blue-700/70 active:border-blue-700 active:ring-1 active:ring-blue-700/70
                 dark:border-slate-500 dark:hover:border-slate-400 dark:focus:border-blue-500 dark:focus:ring-1 dark:focus:ring-blue-500/70 dark:active:border-blue-500 dark:active:ring-1 dark:active:ring-blue-700/70`,
-                field.value === '' && 'text-sm font-light select-none text-slate-400 dark:text-slate-300',
+                field.value === '0' && 'font-light select-none text-slate-400 dark:text-slate-300',
                 disabled && 'bg-gray-100 dark:bg-gray-700 cursor-not-allowed',
                 error && `border-rose-500 ring-1 ring-rose-300 focus:border-red-700 focus:ring-red-500 active:border-red-700 active:ring-red-500 hover:border-red-600
                 dark:border-rose-600 dark:ring-rose-500 dark:focus:border-red-700 dark:focus:ring-red-400 dark:active:border-red-700 dark:active:ring-red-400 dark:hover:border-red-600`,
@@ -110,7 +114,7 @@ const CustomSelect = ({
               }}
               ref={ref ?? field.ref}
             >
-              <Select.Value placeholder='Seleccionar' />
+              <Select.Value />
 
               <span className='relative flex items-center gap-3 text-slate-400'>
                 <Select.Icon>
@@ -131,22 +135,32 @@ const CustomSelect = ({
                 <ScrollArea.Root type="auto">
                   <Select.Viewport className={twMerge('p-1', options.length > 8 && 'mr-3 h-[15rem]')}>
                     <ScrollArea.Viewport className='w-full h-full'>
-                      { options.map((option, index) => (
+                      {/* PLACEHOLDER */}
+                      <Select.Item
+                        value='0'
+                        className={twMerge(`
+                          py-2 px-7 flex items-center rounded-md text-sm leading-none select-none italic pointer-events-none data-[highlighted]:outline-none
+                          bg-gray-100 dark:bg-gray-600 text-gray-400`, 
+                        )}
+                        key='placeholder'
+                        disabled={true}
+                      >
+                        <Select.ItemText>{placeholder ?? 'Seleccionar'}</Select.ItemText>
+                      </Select.Item>
+                      {/* OPCIONES */}
+                      { options.map( option => (
                         <Select.Item
                           value={option.value}
                           className={twMerge(`
-                            relative py-2 px-7 flex items-center rounded-md text-sm leading-none cursor-pointer select-none data-[disabled]:italic data-[disabled]:pointer-events-none data-[highlighted]:outline-none
-                            hover:bg-sky-100 dark:hover:bg-slate-600/90 data-[disabled]:bg-gray-100 dark:data-[disabled]:bg-gray-600 data-[disabled]:text-gray-400`, index !== 0 && 'data-[state=checked]:text-blue-600 dark:data-[state=checked]:text-sky-500' 
+                            py-2 px-7 flex items-center rounded-md text-sm leading-none cursor-pointer select-none data-[disabled]:italic data-[disabled]:pointer-events-none data-[highlighted]:outline-none
+                            hover:bg-sky-100 dark:hover:bg-slate-600/90 data-[disabled]:bg-gray-100 dark:data-[disabled]:bg-gray-600 data-[disabled]:text-gray-400 data-[state=checked]:text-blue-600 dark:data-[state=checked]:text-sky-400`, 
                           )}
                           key={option.value}
-                          disabled={index === 0}
                         >
                           <Select.ItemText>{option.label}</Select.ItemText>
-                          {index !== 0 &&
-                            <Select.ItemIndicator className="absolute left-0 w-6 inline-flex items-center justify-center">
-                              <Check size={15} />
-                            </Select.ItemIndicator>
-                          }
+                          <Select.ItemIndicator className="absolute left-0 w-6 inline-flex items-center justify-center">
+                            <Check size={15} />
+                          </Select.ItemIndicator>
                         </Select.Item>
                       ))}
                     </ScrollArea.Viewport>
